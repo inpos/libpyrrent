@@ -1,8 +1,7 @@
 from ..utils import Enum
 
 class Alert(object):
-    def __init__(self):
-        self.category_t = Enum({
+    category_t = Enum({
                           'error_notification':         0x1,
                           'peer_notification':          0x2,
                           'port_mapping_notification':  0x4,
@@ -25,4 +24,15 @@ class Alert(object):
                           'picker_log_notification':        0x100000,
                           'all_categories':                 0x7fffffff
                           })
+    def timestamp(self):
+        pass
+    def type(self):
+        pass
+    def what(self):
+        pass
+    def message(self):
+        pass
+    def category(self):
+        pass
+
 alert = Alert()

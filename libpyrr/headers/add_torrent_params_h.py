@@ -1,4 +1,14 @@
 from ..utils import Enum
+
+class torrent_info(object):
+    pass
+
+class torrent_plugin(object):
+    pass
+
+class torrent_handle(object):
+    pass
+
 class add_torrent_params(object):
     flags_t = Enum({
                      'flag_seed_mode':      0x001,
@@ -20,28 +30,48 @@ class add_torrent_params(object):
     default_flags       = flags_t.flag_pinned | flags_t.flag_update_subscribe |\
                 flags_t.flag_auto_managed | flags_t.flag_paused | flags_t.flag_apply_ip_filter |\
                 flags_t.flag_need_save_resume
-    version             = int()
+    version             = 0
     ti                  = None
-    trackers            = list()
-    tracker_tiers       = list()
-    dht_nodes           = list()
+    trackers            = []
+    tracker_tiers       = []
+    dht_nodes           = []
     name                = ''
     save_path           = ''
     storage_mode        = storage_mode_t
     storage             = storage_constructor_type
     userdata            = None
-    file_priorities     = list()
-    extensions          = list()
+    file_priorities     = []
+    extensions          = []
     trackerid           = ''
     url                 = ''
-    flags               = int()
+    flags               = 0
     info_hash           = None
-    max_uploads         = int()
-    max_connections     = int()
-    upload_limit        = int()
-    download_limit      = int()
-    total_uploaded      = int()
-    total_downloaded    = int()
+    max_uploads         = 0
+    max_connections     = 0
+    upload_limit        = 0
+    download_limit      = 0
+    total_uploaded      = 0
+    total_downloaded    = 0
+    active_time         = 0
+    finished_time       = 0
+    seeding_time        = 0
+    added_time          = 0
+    completed_time      = 0
+    last_seen_complete  = 0
+    num_complete        = 0
+    num_incomplete      = 0
+    num_downloaded      = 0
+    http_seeds          = []
+    url_seeds           = []
+    peers               = []
+    banned_peers        = []
+    unfinished_pieces   = []
+    have_pieces         = []
+    verified_pieces     = []
+    piece_priorities    = []
+    merkle_tree         = []
+    renamed_files       = []
+    
     def __init__(self,
                  version = LIBTORRENT_VERSION_NUM,
                  storage_mode = storage_mode_sparse,
