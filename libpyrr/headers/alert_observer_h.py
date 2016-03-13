@@ -1,8 +1,10 @@
 from ..utils import Struct
-alert_observer = Struct({
-                         'alert_handler': None,
-                         'handle_alert': 0,
-                         'types': [],
-                         'num_types': 0,
-                         'flags':   0
-                         })
+class alert_observer(Struct):
+    def __init__(self):
+        super(alert_observer, self).__init__()
+        self.num_types = 0
+        self.flags = 0
+        self.types = []
+        self.alert_handler = None
+    def handle_alert(self, a):
+        pass
